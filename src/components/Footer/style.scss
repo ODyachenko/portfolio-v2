@@ -1,0 +1,40 @@
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #1e2d3d;
+
+  &__info,
+  &__link {
+    padding: 20px 15px;
+  }
+  &__info {
+    margin-right: auto;
+  }
+  &__link {
+    display: block;
+    border-left: 1px solid #1e2d3d;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    & img {
+      margin: 0 auto;
+    }
+  }
+}
+@media (min-width: 640px) {
+  .footer {
+    &__info {
+      margin: 0;
+    }
+    &__link {
+      &:nth-child(3) {
+        border-right: 1px solid #1e2d3d;
+        margin-right: auto;
+      }
+    }
+  }
+}

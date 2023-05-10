@@ -1,0 +1,12 @@
+@mixin _border-left {
+  border-left: 1px solid #1e2d3d;
+}
+@mixin _border-right {
+  border-right: 1px solid #1e2d3d;
+}
+@mixin _border-top {
+  border-top: 1px solid #1e2d3d;
+}
+@mixin _border-bottom {
+  border-bottom: 1px solid #1e2d3d;
+}

@@ -1,0 +1,221 @@
+@import './assets/scss/fonts.scss';
+@import './assets/scss/normalize.scss';
+@import './assets/scss/variables.scss';
+@import './assets/scss/mixins.scss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #607b96;
+  background: #010c15;
+}
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #011627;
+  overflow-x: hidden;
+}
+// .App {
+//   position: relative;
+//   height: 100%;
+//   max-width: 1920px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-between;
+//   background: #011627;
+//   border: 1px solid #1e2d3d;
+//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//   border-radius: 8px;
+//   margin: 0 auto;
+// }
+.container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.purple {
+  color: $purple;
+}
+.green {
+  color: $green;
+}
+.orange {
+  color: $orange;
+}
+.comment {
+  display: block;
+  line-height: 1.5;
+}
+.custom {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+.checkbox::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #607b96;
+  border-radius: 2px;
+  background-color: inherit;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+.custom:checked + .checkbox::before {
+  background-color: #607b96;
+  background-image: url('./assets/img/check.svg');
+  background-size: 14px;
+}
+.tabs {
+  &__caption {
+    position: relative;
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    @include _border-top;
+    @include _border-bottom;
+
+    padding: 15px 0 15px 40px;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+
+      border-top: 7px solid #fff;
+
+      position: absolute;
+      left: 15px;
+      top: 22px;
+    }
+
+    &.hide::before {
+      transform: rotate(180deg);
+    }
+  }
+  &__list {
+    padding: 15px;
+
+    &.hide {
+      height: 0;
+      visibility: hidden;
+      padding: 0;
+    }
+
+    &-item {
+      position: relative;
+      cursor: pointer;
+      padding-left: 30px;
+
+      &::before {
+        content: '';
+        width: 19px;
+        height: 21px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+      &:hover {
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      &.active {
+        color: #fff;
+      }
+    }
+  }
+}
+.tabs__list--info .tabs__list-item:nth-child(1)::before {
+  background: url(./assets/img/html.svg) no-repeat center/contain;
+}
+.tabs__list--info .tabs__list-item:nth-child(2)::before {
+  background: url(./assets/img/css.svg) no-repeat center/contain;
+}
+.tabs__list--info .tabs__list-item:nth-child(3)::before {
+  background: url(./assets/img/react.svg) no-repeat center/contain;
+}
+.tabs__list--info .tabs__list-item:nth-child(4)::before {
+  background: url(./assets/img/text.svg) no-repeat center/contain;
+}
+.tabs__list--contacts .tabs__list-item:nth-child(1)::before {
+  background: url(./assets/img/mail.svg) no-repeat center/contain;
+}
+.tabs__list--contacts .tabs__list-item:nth-child(2)::before {
+  background: url(./assets/img/phone.svg) no-repeat center/contain;
+}
+.tabs__list--social .tabs__list-item::before {
+  background: url('./assets/img/link.svg') no-repeat center/contain;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 22px;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    padding: 30px;
+    overflow: hidden;
+  }
+  .App {
+    position: relative;
+    height: 100%;
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #1e2d3d;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+  .tabs {
+    width: 245px;
+    flex-shrink: 0;
+    @include _border-right;
+  }
+}
+@media (min-width: 1220px) {
+  body {
+    padding: 40px;
+  }
+  .tabs {
+    width: 305px;
+  }
+}
+@media (min-width: 1620px) {
+  body {
+    padding: 70px;
+  }
+}
