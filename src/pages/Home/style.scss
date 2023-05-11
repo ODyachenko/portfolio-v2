@@ -79,7 +79,7 @@
       font-size: 16px;
     }
     &__subtitle {
-      font-size: 29px;
+      font-size: 27px;
 
       // margin-bottom: 190px;
     }
@@ -100,6 +100,28 @@
     }
     &__title {
       font-size: 60px;
+    }
+    &__subtitle {
+      &--blink {
+        animation: blink 1s ease infinite;
+      }
+      &--animate {
+        position: relative;
+        // animation: typing 1.5s steps(10) infinite;
+
+        &::after {
+          content: '';
+          background-color: #041626;
+          animation: typing 2s steps(19) forwards;
+
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 10;
+        }
+      }
     }
   }
   .game {
@@ -296,4 +318,27 @@
       right: -55px;
     }
   }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes typing {
+  0% {
+    lef: 0;
+  }
+  100% {
+    left: 100%;
+  }
+  // 100% {
+  //   left: 0;
+  // }
 }

@@ -7,7 +7,6 @@ function Home() {
   const snakeRef = useRef(false);
 
   useEffect(() => {
-    // snake();
     if (window.innerWidth > 1023) {
       snakeRef.current = true;
     }
@@ -23,7 +22,11 @@ function Home() {
         <div className="home__content">
           <span className="home__caption">Hi all. I am</span>
           <h1 className="home__title">Oleh Diachenko</h1>
-          <h2 className="home__subtitle"> Front-end developer</h2>
+          <h2 className="home__subtitle">
+            {' '}
+            <span className="home__subtitle--blink">{'>'}</span>
+            <span className="home__subtitle--animate">Front-end developer</span>
+          </h2>
           <p className="home__social">
             <span className="home__social--comment">
               // find my profile on Github

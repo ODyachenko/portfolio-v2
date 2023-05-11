@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 
-// const URL =
-//   'https://script.google.com/macros/s/AKfycbxTZvqybpPT1ku8UutCh7xff2RunVpnEVp7H6VkGoeuI_R9Dsun/exec';
+const URL =
+  'https://script.google.com/macros/s/AKfycbxySAellCpL_thrrq_rPvoHi2BAyZVYZs4JQIVTdui7jV6_P7qHp7cb5iQx-OdbMISoTw/exec';
 
 function ContactsForm() {
   const [userData, setUserData] = useState({});
+  const isSubmited = useRef(false);
   const {
     register,
     handleSubmit,
@@ -17,26 +17,35 @@ function ContactsForm() {
   });
   const onSubmit = (data) => {
     setUserData(data);
+    isSubmited.current = true;
     reset();
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .post(URL, userData)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [userData]);
+  useEffect(() => {
+    if (isSubmited.current) {
+      fetch(URL, {
+        method: 'POST',
+        cors: 'no-cors',
+        body: userData,
+      })
+        .then((res) => console.log('Success: ', res))
+        .catch((err) => console.error(err));
+
+      console.log(userData);
+    }
+  }, [userData]);
 
   return (
-    <form className="contacts__form form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="contacts__form form"
+      method="post"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <label className="form__label">
         <span className="form__label--name">_name:</span>
         <input
           className="form__field"
+          name="name"
           {...register('name', {
             required: 'Name is required',
             minLength: {
@@ -57,6 +66,7 @@ function ContactsForm() {
         <span className="form__label--name">_email:</span>
         <input
           className="form__field"
+          name="email"
           {...register('email', {
             required: 'Email is required',
             pattern: {
@@ -73,6 +83,7 @@ function ContactsForm() {
         <span className="form__label--name">_message:</span>
         <textarea
           className="form__field form__field--message"
+          name="message"
           {...register('message', {
             required: 'Message is required',
             minLength: {
