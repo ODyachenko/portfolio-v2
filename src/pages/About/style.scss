@@ -5,15 +5,8 @@
   overflow: auto;
 
   &__description {
-    padding: 20px 0 20px 45px;
+    padding: 20px 0 20px 15px;
 
-    & ol {
-      list-style: numeric;
-    }
-
-    & li:nth-child(2) {
-      animation: typing-2 8s steps(60, end);
-    }
     & li:not(:last-child) {
       margin-bottom: 10px;
     }
@@ -30,6 +23,10 @@
     }
     &__description {
       padding-left: 80px;
+
+      & ol {
+        list-style: numeric;
+      }
     }
   }
 }

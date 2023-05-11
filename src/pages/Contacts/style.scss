@@ -9,7 +9,7 @@
 .form {
   width: 100%;
   max-width: 370px;
-  padding: 0 15px;
+  padding: 0 15px 20px;
   margin: 0 auto;
 
   &__label {
@@ -63,6 +63,7 @@
   .contacts {
     display: flex;
     flex: 1 1 auto;
+    flex-shrink: 0;
 
     &__tabs {
       border-right: 1px solid #1e2d3d;
@@ -71,5 +72,6 @@
   }
   .form {
     align-self: center;
+    padding-top: 20px;
   }
 }
