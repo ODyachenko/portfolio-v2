@@ -7,7 +7,7 @@ function Bio() {
       <li>* Hi, everyone!</li>
       <li>* My name is Oleh, I am 26 years old.</li>
       <li>* I live in the beautiful city of Kyiv. I have a corgi dog,</li>
-      <li>* on which I spend all my money (</li>
+      <li>* on which I spend all my money(</li>
       <li>* Actually, we all work so that our pets have a better life))</li>
       <li>* I am a Web Developer with 2+ years experience.</li>
       <li>

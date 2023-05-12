@@ -10,11 +10,10 @@ function CardItem({ id, title, img, description, previewLink, sourceLink }) {
       </div>
       <div className="card__footer">
         <p className="card__description">{description}</p>
-        {/* <button className="card__btn">view-project</button> */}
         <a
           href={previewLink}
           target="_blank"
-          rek="noreferrer"
+          rel="noreferrer"
           className="card__btn"
         >
           Preview
@@ -22,7 +21,7 @@ function CardItem({ id, title, img, description, previewLink, sourceLink }) {
         <a
           href={sourceLink}
           target="_blank"
-          rek="noreferrer"
+          rel="noreferrer"
           className="card__btn"
         >
           source

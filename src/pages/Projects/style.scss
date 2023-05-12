@@ -1,8 +1,11 @@
 .projects {
-  // height: 100%;
+  height: 100%;
   width: 100%;
   overflow: auto;
 
+  &__wrapper {
+    height: 100%;
+  }
   &__list {
     padding: 15px;
   }
@@ -71,6 +74,7 @@
     background: #1c2b3a;
     border-radius: 8px;
     cursor: pointer;
+
     padding: 10px 15px;
   }
 }
@@ -102,6 +106,13 @@
   .card {
     &__description {
       height: 115px;
+    }
+    &__btn {
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #25394d;
+      }
     }
   }
 }

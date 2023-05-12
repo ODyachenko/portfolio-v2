@@ -1,12 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { PacmanLoader } from 'react-spinners';
 import { useForm } from 'react-hook-form';
-
-const URL =
-  'https://script.google.com/macros/s/AKfycbxySAellCpL_thrrq_rPvoHi2BAyZVYZs4JQIVTdui7jV6_P7qHp7cb5iQx-OdbMISoTw/exec';
+import {
+  setNameValue,
+  setEmailValue,
+  setMessageValue,
+  setSentForm,
+  setUserData,
+  postFeedback,
+} from '../../redux/contactsSlice';
 
 function ContactsForm() {
-  const [userData, setUserData] = useState({});
+  const { nameValue, emailValue, messageValue, userData } = useSelector(
+    (state) => state.contacts
+  );
+  const dispatch = useDispatch();
   const isSubmited = useRef(false);
+
   const {
     register,
     handleSubmit,
@@ -16,24 +27,25 @@ function ContactsForm() {
     mode: 'onBlur',
   });
   const onSubmit = (data) => {
-    setUserData(data);
+    dispatch(setUserData(data));
     isSubmited.current = true;
     reset();
+    dispatch(setNameValue(''));
+    dispatch(setEmailValue(''));
+    dispatch(setMessageValue(''));
   };
+
+  async function postData() {
+    dispatch(postFeedback(userData));
+  }
 
   useEffect(() => {
     if (isSubmited.current) {
-      fetch(URL, {
-        method: 'POST',
-        cors: 'no-cors',
-        body: userData,
-      })
-        .then((res) => console.log('Success: ', res))
-        .catch((err) => console.error(err));
-
-      console.log(userData);
+      postData();
+      dispatch(setSentForm(true));
+      isSubmited.current = false;
     }
-  }, [userData]);
+  }, [isSubmited.current]);
 
   return (
     <form
@@ -45,7 +57,6 @@ function ContactsForm() {
         <span className="form__label--name">_name:</span>
         <input
           className="form__field"
-          name="name"
           {...register('name', {
             required: 'Name is required',
             minLength: {
@@ -57,6 +68,8 @@ function ContactsForm() {
               message: 'Name must be less than 50 characters',
             },
           })}
+          value={nameValue}
+          onChange={(event) => dispatch(setNameValue(event.target.value))}
         />
         {errors?.name && (
           <span className="form__error">{errors?.name?.message}</span>
@@ -66,7 +79,6 @@ function ContactsForm() {
         <span className="form__label--name">_email:</span>
         <input
           className="form__field"
-          name="email"
           {...register('email', {
             required: 'Email is required',
             pattern: {
@@ -74,6 +86,8 @@ function ContactsForm() {
               message: 'Email must be of type test@domen.com',
             },
           })}
+          value={emailValue}
+          onChange={(event) => dispatch(setEmailValue(event.target.value))}
         />
         {errors?.email && (
           <span className="form__error">{errors?.email?.message}</span>
@@ -83,7 +97,6 @@ function ContactsForm() {
         <span className="form__label--name">_message:</span>
         <textarea
           className="form__field form__field--message"
-          name="message"
           {...register('message', {
             required: 'Message is required',
             minLength: {
@@ -95,13 +108,19 @@ function ContactsForm() {
               message: 'Message must be less than 600 characters',
             },
           })}
+          value={messageValue}
+          onChange={(event) => dispatch(setMessageValue(event.target.value))}
         ></textarea>
         {errors?.message && (
           <span className="form__error">{errors?.message?.message}</span>
         )}
       </label>
-      <button className="form__btn" type="submit">
-        submit-message
+      <button className={`form__btn`} type="submit">
+        {isSubmited.current ? (
+          <PacmanLoader color="#36d7b7" />
+        ) : (
+          'submit-message'
+        )}
       </button>
     </form>
   );

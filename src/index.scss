@@ -56,6 +56,9 @@ body {
 .orange {
   color: $orange;
 }
+.pink {
+  color: $pink;
+}
 .comment {
   display: block;
   line-height: 1.5;
@@ -97,7 +100,7 @@ body {
     position: relative;
     display: block;
     color: #fff;
-    cursor: pointer;
+    // cursor: pointer;
     @include _border-top;
     @include _border-bottom;
 

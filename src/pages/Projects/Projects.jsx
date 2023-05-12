@@ -1,35 +1,42 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 import CardItem from './CardItem';
 import FilterItem from './FilterItem';
 import Skeleton from './Skeleton';
+import { fetchProjects } from '../../redux/projectsSlice';
 
 import './style.scss';
-
-const URL = 'https://64465b720431e885f00fc24e.mockapi.io/collections';
 
 const filtersList = [
   'HTML',
   'CSS',
   'JavaScript',
   'React',
-  'Redux Toolkit',
+  'Redux',
   'Pug',
   'SASS',
 ];
 
 function Projects() {
-  const [projectsData, setProjectsData] = useState([]);
   const [filterRules, setFilterRules] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { projectsData, status } = useSelector((state) => state.projects);
+  const dispatch = useDispatch();
+  let filterString = '';
+
+  if (filterRules.length > 0) {
+    filterString = filterRules.reduce((str, filter) => {
+      return (str += `&filter=${filter.toLowerCase()}`);
+    }, '');
+
+    console.log(filterString);
+  }
+
+  async function fetchData() {
+    dispatch(fetchProjects());
+  }
 
   useEffect(() => {
-    axios(URL)
-      .then((res) => {
-        setProjectsData(res.data);
-        setIsLoading(false);
-      })
-      .catch((error) => console.error('Error: ', error.message));
+    fetchData();
   }, []);
 
   return (
@@ -52,7 +59,7 @@ function Projects() {
           </ul>
         </div>
         <div className="projects__list">
-          {isLoading
+          {status === 'pending'
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
             : projectsData.map((card) => {
                 return <CardItem key={card.id} {...card} />;

@@ -10,24 +10,14 @@ const includesComponents = [<Bio />, <Education />, <Skills />, <University />];
 
 function About() {
   const [activeCategoty, setActiveCategory] = useState(0);
-  const [showTabs, setShowTabs] = useState(true);
 
   return (
     <div className="about">
       <div className="about__wrapper">
         <ul className="about__tabs tabs">
           <li className="tabs__item">
-            <span
-              onClick={() => setShowTabs(!showTabs)}
-              className={`tabs__caption ${!showTabs ? 'hide' : ''}`}
-            >
-              personal-info
-            </span>
-            <ul
-              className={`tabs__list tabs__list--info ${
-                !showTabs ? 'hide' : ''
-              }`}
-            >
+            <span className={`tabs__caption`}>personal-info</span>
+            <ul className={`tabs__list tabs__list--info`}>
               {categories.map((category, index) => {
                 return (
                   <li

@@ -7,7 +7,7 @@ import redux from '../../assets/img/redux.svg';
 import pug from '../../assets/img/pug.svg';
 import sass from '../../assets/img/sass.svg';
 
-const iconsList = [html, css, react, javascript, redux, pug, sass];
+const iconsList = [html, css, javascript, react, redux, pug, sass];
 
 function FilterItem({ value, index, filterRules, setFilterRules }) {
   const [checked, setChecked] = useState(false);

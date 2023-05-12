@@ -1,8 +1,12 @@
+import { useSelector } from 'react-redux';
 import ContactsForm from './ContactsForm';
+import Accepted from './Accepted';
 import Snippet from './Snippet';
 import './style.scss';
 
 function Contacts() {
+  const { sentForm } = useSelector((state) => state.contacts);
+
   return (
     <div className="contacts">
       <ul className="contacts__tabs tabs">
@@ -24,7 +28,7 @@ function Contacts() {
               <a
                 href="https://www.linkedin.com/in/oleh-diachenko-frontend/"
                 target="_blank"
-                rel="no-referrer"
+                rel="noreferrer"
               >
                 LinkedIn
               </a>
@@ -33,7 +37,7 @@ function Contacts() {
               <a
                 href="https://t.me/dyachenko_o"
                 target="_blank"
-                rel="no-referrer"
+                rel="noreferrer"
               >
                 Telegram
               </a>
@@ -42,21 +46,18 @@ function Contacts() {
               <a
                 href="https://github.com/ODyachenko"
                 target="_blank"
-                rel="no-referrer"
+                rel="noreferrer"
               >
                 GitHub
               </a>
             </li>
-            {/* <li className="tabs__list-item">
-              <a href="" target="_blank" rel="no-referrer">
-                Instagram
-              </a>
-            </li> */}
           </ul>
         </li>
       </ul>
-      <ContactsForm />
-      {/* <Snippet /> */}
+      <div className="contacts__content">
+        {sentForm ? <Accepted /> : <ContactsForm />}
+        <Snippet />
+      </div>
     </div>
   );
 }

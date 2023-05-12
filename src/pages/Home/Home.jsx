@@ -10,10 +10,6 @@ function Home() {
     if (window.innerWidth > 1023) {
       snakeRef.current = true;
     }
-
-    // return () => {
-    //   console.log('Unmount');
-    // };
   }, [window.innerWidth]);
 
   return (
@@ -24,12 +20,12 @@ function Home() {
           <h1 className="home__title">Oleh Diachenko</h1>
           <h2 className="home__subtitle">
             {' '}
-            <span className="home__subtitle--blink">{'>'}</span>
+            <span className="home__subtitle--blink">{'> '}</span>
             <span className="home__subtitle--animate">Front-end developer</span>
           </h2>
           <p className="home__social">
             <span className="home__social--comment">
-              // find my profile on Github
+              {' // find my profile on Github'}
             </span>
             <span className="home__social--code">
               <span className="purple">const</span>
@@ -49,13 +45,12 @@ function Home() {
         </div>
         <div className="home__game game">
           <div className="game__field">
-            {/* <canvas className="canvas" width={240} height={240}></canvas> */}
             {snakeRef && <Snake counter={counter} setCounter={setCounter} />}
           </div>
           <div className="game__info">
             <div className="game__controls">
-              <span className="comment">// use keyboard</span>
-              <span className="comment">// arrows to play</span>
+              <span className="comment">{'// use keyboard'}</span>
+              <span className="comment">{'// arrows to play'}</span>
               <div className="game__controls-arrows arrow">
                 <span className="arrow__up">
                   <span></span>
@@ -72,8 +67,7 @@ function Home() {
               </div>
             </div>
             <div className="game__score">
-              <span className="comment">// score</span>
-              <span className="score">{counter}</span>
+              {'// score'} <span className="score">{counter}</span>
             </div>
           </div>
         </div>

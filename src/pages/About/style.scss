@@ -5,6 +5,7 @@
   overflow: auto;
 
   &__description {
+    line-height: 1.3;
     padding: 20px 0 20px 15px;
 
     & li:not(:last-child) {
