@@ -13,12 +13,12 @@ function Education() {
         * where I majored in Automation and Computer Integrated Technologies.
       </li>
       <li>
-        * Took part in conferences, Olympiads and competitions of scientific
+        * I took part in conferences, Olympiads and competitions of scientific
         papers
       </li>
-      <li>* Often attended various courses.</li>
-      <li>* In 2018, he received a bachelor's degree.</li>
-      <li>* And already in 2019, he obtained a master's degree </li>
+      <li>* Often I attended various courses.</li>
+      <li>* In 2018, I received a bachelor's degree.</li>
+      <li>* And already in 2019, obtained a master's degree </li>
       <li>* as a research engineer in computer systems and automation.</li>
       <li>**/</li>
     </ol>
