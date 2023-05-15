@@ -17,6 +17,14 @@ function Bio() {
       <li>
         * and work with already existing projects (bug fixing, optimization).
       </li>
+      <li>
+        * Taking into account the usage policy of each country, I developed
+        valid,
+      </li>
+      <li>
+        * semantic, and adaptive web pages for European, Asian and Arab
+        countries.
+      </li>
       <li>* I am constantly developing and learning new technologies in IT.</li>
       <li>**/</li>
     </ol>

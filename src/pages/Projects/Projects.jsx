@@ -42,7 +42,7 @@ function Projects() {
   return (
     <div className="projects">
       <div className="projects__wrapper">
-        <div className="projects__tabs tabs">
+        {/* <div className="projects__tabs tabs">
           <span className="tabs__caption">projects</span>
           <ul className="projects__techs">
             {filtersList.map((item, index) => {
@@ -57,7 +57,7 @@ function Projects() {
               );
             })}
           </ul>
-        </div>
+        </div> */}
         <div className="projects__list">
           {status === 'pending'
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)

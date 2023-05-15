@@ -3,9 +3,9 @@
   width: 100%;
   overflow: auto;
 
-  &__wrapper {
-    height: 100%;
-  }
+  // &__wrapper {
+  //   height: 100%;
+  // }
   &__list {
     padding: 15px;
   }
@@ -87,11 +87,14 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
       grid-column-gap: 20px;
-      grid-row-gap: 20px;
+      grid-row-gap: 30px;
       padding: 20px;
     }
   }
   .card {
+    &:not(:last-child) {
+      margin: 0 auto;
+    }
     &__description {
       height: 96px;
     }
@@ -116,11 +119,17 @@
     }
   }
 }
-
-@media (min-width: 1620px) {
+@media (min-width: 1220px) {
   .projects {
     &__list {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media (min-width: 1620px) {
+  .projects {
+    &__list {
+      grid-template-columns: repeat(4, 1fr);
       grid-column-gap: 40px;
       grid-row-gap: 40px;
       padding: 40px;

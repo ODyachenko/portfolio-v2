@@ -5,8 +5,8 @@ import Skills from './Skills';
 import University from './University';
 import './style.scss';
 
-const categories = ['bio', 'education', 'skills', 'university'];
-const includesComponents = [<Bio />, <Education />, <Skills />, <University />];
+const categories = ['bio', 'education', 'skills'];
+const includesComponents = [<Bio />, <Education />, <Skills />];
 
 function About() {
   const [activeCategoty, setActiveCategory] = useState(0);

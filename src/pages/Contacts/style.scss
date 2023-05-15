@@ -8,7 +8,7 @@
     margin-bottom: 20px;
   }
   &__accepted {
-    width: 100%;
+    // width: 100%;
     align-self: center;
     text-align: center;
     padding: 15px;
@@ -147,14 +147,15 @@
     &__content {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
 
       padding: 20px 30px;
     }
     &__snippet {
       display: block;
-      max-width: 570px;
+      width: 375px;
       align-self: center;
+      flex-shrink: 0;
       font-size: 14px;
       line-height: 1.5;
       padding-left: 35px;
@@ -179,7 +180,7 @@
     padding-right: 40px;
 
     &__snippet {
-      max-width: 670px;
+      width: 520px;
       font-size: 16px;
     }
   }
