@@ -4,18 +4,21 @@ function Skills() {
       <li>/**</li>
       <li>* My tech stack:</li>
       <li>* Front-End development,</li>
-      <li>* HTML,</li>
-      <li>* CSS,</li>
       <li>* JavaScript,</li>
-      <li>* React.js,</li>
-      <li>* Redux Toolkit,</li>
+      <li>* TypeScript,</li>
+      <li>* React,</li>
+      <li>* Next,</li>
+      <li>* jQuery,</li>
+      <li>* HTML / CSS,</li>
+      <li>* Pug / SASS, </li>
+      <li>* Redux Toolkit / RTK Query,</li>
+      <li>* Python,</li>
+      <li>* Django / DRF,</li>
+      <li>* REST API,</li>
+      <li>* MySQL,</li>
       <li>* BEM,</li>
-      <li>* Webpack,</li>
       <li>* Gulp,</li>
-      <li>* Pug,</li>
-      <li>* SASS, </li>
       <li>* Git,</li>
-      <li>* Photoshop,</li>
       <li>* Figma</li>
       <li>**/</li>
     </ol>
